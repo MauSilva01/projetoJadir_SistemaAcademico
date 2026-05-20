@@ -129,24 +129,29 @@ public class PainelCurso extends JPanel {
 		grupoPeriodo.add(rdbNoturno);
 
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(65, 220, 100, 30);
+		btnSalvar.setBounds(25, 220, 95, 35);
 		btnSalvar.addActionListener(e -> salvarCurso());
 		add(btnSalvar);
 
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setBounds(180, 220, 110, 30);
+		btnConsultar.setBounds(135, 220, 100, 35);
 		btnConsultar.addActionListener(e -> consultarCurso());
 		add(btnConsultar);
 
 		JButton btnAlterar = new JButton("Alterar");
-		btnAlterar.setBounds(305, 220, 100, 30);
+		btnAlterar.setBounds(250, 220, 95, 35);
 		btnAlterar.addActionListener(e -> alterarCurso());
 		add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(420, 220, 100, 30);
+		btnExcluir.setBounds(360, 220, 95, 35);
 		btnExcluir.addActionListener(e -> excluirCurso());
 		add(btnExcluir);
+
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(470, 220, 95, 35);
+		btnLimpar.addActionListener(e -> limparCampos());
+		add(btnLimpar);
 	}
 
 	public void salvarCurso() {
@@ -248,9 +253,9 @@ public class PainelCurso extends JPanel {
 				JOptionPane.showMessageDialog(
 						null,
 						"ATENÇÃO!\n\n"
-						+ "Os campos foram liberados para edição.\n\n"
-						+ "Após realizar as alterações,\n"
-						+ "clique novamente em ALTERAR para salvar."
+								+ "Os campos foram liberados para edição.\n\n"
+								+ "Após realizar as alterações,\n"
+								+ "clique novamente em ALTERAR para salvar."
 				);
 
 				return;
@@ -355,5 +360,8 @@ public class PainelCurso extends JPanel {
 		comboCampus.setSelectedIndex(0);
 
 		rdbNoturno.setSelected(true);
+
+		habilitarCampos(true);
+		modoEdicao = false;
 	}
 }
